@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import useFetch from "../../hooks/useFetch";
 import Badge from "../atoms/Badge";
@@ -15,6 +15,7 @@ import ShareProduct from "../molecules/ShareProduct";
 const Product = () => {
   const { state, dispatch } = useContext(CartContext);
   const params = useParams();
+  const navigate = useNavigate();
   const { data, loading, error } = useFetch(`public/products/${params.id}`);
 
   if (loading) return <Loader />;
@@ -50,7 +51,6 @@ const Product = () => {
             </div>
             <PriceDetails price={data.price} />
             <div className="grid grid-cols-2 gap-4 mb-4">
-              <BuyButton text="Comprar ahora" />
               {!state.cart.find((p) => p.id === data.id) ? (
                 <BuyButton
                   text="Agregar al carrito"
@@ -68,6 +68,10 @@ const Product = () => {
                   isGhost
                 />
               )}
+              <BuyButton
+                text="Seguir comprando"
+                onClick={() => navigate("/productos")}
+              />
             </div>
             <ProductInformation
               description={data.description}
