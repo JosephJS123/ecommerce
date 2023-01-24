@@ -1,6 +1,6 @@
 import logo from "../../assets/logo.png";
 
-const LoginTemplate = ({ children }) => {
+const LoginTemplate = ({ children, title }) => {
   return (
     <section className="h-full gradient-form bg-gray-200 md:h-screen">
       <div className="container m-auto py-12 px-6 h-full">
@@ -12,12 +12,12 @@ const LoginTemplate = ({ children }) => {
                   <div className="md:p-12 md:mx-6">
                     <div className="text-center">
                       <img
-                        className="mx-auto w-48 mb-4 pt-4"
+                        className="mx-auto w-24 mb-4 pt-4"
                         src={logo}
                         alt="logo"
                       />
                       <h4 className="text-xl font-semibold mt-1 mb-8 pb-1">
-                        Iniciar Sesión
+                        {title}
                       </h4>
                     </div>
                     {children}
