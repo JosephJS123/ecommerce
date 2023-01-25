@@ -6,7 +6,7 @@ const Home = () => {
     <>
       <Banner />
       <div>
-        <h2 className="mt-8 text-2xl text-center">Últimos productos</h2>
+        <h2 className="mt-8 text-2xl text-center font-bold">Últimos productos</h2>
         <MainProducts />
       </div>
     </>
